@@ -1,8 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class Turret : MonoBehaviour
 {
+    [Header("Данные турели (ScriptableObject)")]
+    public TurretData turretData;
+
     [Header("Настройки характеристик")]
     public float range = 5f;
     public float fireRate = 1f;
@@ -20,6 +25,7 @@ public class Turret : MonoBehaviour
     public float fireCooldown = 12f;
     public float poisonCooldown = 15f;
 
+    [Header("Интерфейс турели")]
     public TurretUI turretUI;
     public GameObject uiPrefab;
     public Vector3 uiOffset = new Vector3(0, 2f, 0);
@@ -43,6 +49,7 @@ public class Turret : MonoBehaviour
 
     void Start()
     {
+        // 1. Спавн и привязка World-Space UI над турелью
         if (uiPrefab != null)
         {
             myUIInstance = Instantiate(uiPrefab, transform.position, transform.rotation);
@@ -70,7 +77,8 @@ public class Turret : MonoBehaviour
             }
         }
 
-        InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        // 2. Запуск регулярного поиска врагов каждые 0.5 сек (оптимизация производительности)
+        InvokeRepeating(nameof(UpdateTarget), 0f, 0.5f);
     }
 
     void UpdateTarget()
@@ -177,7 +185,42 @@ public class Turret : MonoBehaviour
         }
     }
 
-    public void ActivateFreeze() { if (freezeTimer <= 0 && currentAbility == AbilityType.None) { currentAbility = AbilityType.Freeze; abilityTimer = abilityDuration; freezeTimer = freezeCooldown; } }
-    public void ActivateFire() { if (fireTimer <= 0 && currentAbility == AbilityType.None) { currentAbility = AbilityType.Fire; abilityTimer = abilityDuration; fireTimer = fireCooldown; } }
-    public void ActivatePoison() { if (poisonTimer <= 0 && currentAbility == AbilityType.None) { currentAbility = AbilityType.Poison; abilityTimer = abilityDuration; poisonTimer = poisonCooldown; } }
+    public void ActivateFreeze()
+    {
+        if (freezeTimer <= 0 && currentAbility == AbilityType.None)
+        {
+            currentAbility = AbilityType.Freeze;
+            abilityTimer = abilityDuration;
+            freezeTimer = freezeCooldown;
+        }
+    }
+
+    public void ActivateFire()
+    {
+        if (fireTimer <= 0 && currentAbility == AbilityType.None)
+        {
+            currentAbility = AbilityType.Fire;
+            abilityTimer = abilityDuration;
+            fireTimer = fireCooldown;
+        }
+    }
+
+    public void ActivatePoison()
+    {
+        if (poisonTimer <= 0 && currentAbility == AbilityType.None)
+        {
+            currentAbility = AbilityType.Poison;
+            abilityTimer = abilityDuration;
+            poisonTimer = poisonCooldown;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        // Очищаем всплывающий интерфейс при уничтожении турели
+        if (myUIInstance != null)
+        {
+            Destroy(myUIInstance);
+        }
+    }
 }

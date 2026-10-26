@@ -1,105 +1,410 @@
+
+using System;
 using System.Collections;
 using UnityEngine;
 
-[System.Serializable]
+[Serializable]
 public class Wave
 {
     public GameObject[] enemyPrefabs;
-    public int count;
-    public float spawnRate;
-    public float healthMultiplier = 1f;
-    public float damageMultiplier = 1f;
+    [Min(0)] public int count = 5;
+    [Min(0.01f)] public float spawnRate = 1f;
+    [Min(0f)] public float healthMultiplier = 1f;
+    [Min(0f)] public float damageMultiplier = 1f;
 }
 
 public class WaveManager : MonoBehaviour
 {
+    [Header("Wave Configuration")]
     public Wave[] waves;
+
+    [Header("Spawn")]
     public Transform spawnPoint;
     public Transform[] pathWaypoints;
-    public UIManager uiManager;
-    public float spawnWidth = 4.0f;
-    public float spawnHeight = 4.0f;
+    public float spawnWidth = 4f;
+    public float spawnHeight = 4f;
 
-    private int currentWaveIndex = 0;
-    private int enemiesAlive = 0;
-    private int enemiesSpawned = 0;
+    [Header("Optional HUD")]
+    public CombatHUDView uiManager;
 
-    void Start()
+    private int currentWaveIndex;
+    private int enemiesAlive;
+    private int enemiesSpawned;
+
+    private Coroutine waveRoutine;
+    private bool isRunning;
+
+    public bool IsRunning => isRunning;
+    public int TotalWaves => waves != null ? waves.Length : 0;
+    public int CurrentWaveNumber => currentWaveIndex + 1;
+
+    // Событие вызывается после завершения всех волн
+    // и устранения всех врагов.
+    public event Action AllWavesCompleted;
+
+    // Событие сообщает о внутренней ошибке запуска волн.
+    public event Action<string> WaveRunFailed;
+
+    /// <summary>
+    /// Проверяет, можно ли запустить бой.
+    /// Не меняет состояние игры.
+    /// </summary>
+    public bool CanStart(out string reason)
     {
-        if (waves.Length > 0)
+        reason = string.Empty;
+
+        if (isRunning)
         {
-            StartCoroutine(SpawnWave());
+            reason = "Волны уже запущены.";
+            return false;
         }
+
+        if (waves == null || waves.Length == 0)
+        {
+            reason = "В WaveManager не настроены волны.";
+            return false;
+        }
+
+        if (spawnPoint == null)
+        {
+            reason = "Не назначен Spawn Point.";
+            return false;
+        }
+
+        if (pathWaypoints == null || pathWaypoints.Length == 0)
+        {
+            reason = "Не назначены точки маршрута врагов.";
+            return false;
+        }
+
+        foreach (Transform waypoint in pathWaypoints)
+        {
+            if (waypoint == null)
+            {
+                reason = "В маршруте врагов есть пустая точка.";
+                return false;
+            }
+        }
+
+        for (int i = 0; i < waves.Length; i++)
+        {
+            Wave wave = waves[i];
+
+            if (wave == null)
+            {
+                reason = $"Волна {i + 1} не настроена.";
+                return false;
+            }
+
+            if (wave.count < 0)
+            {
+                reason = $"У волны {i + 1} отрицательное количество врагов.";
+                return false;
+            }
+
+            // Пустая волна разрешена.
+            if (wave.count == 0)
+                continue;
+
+            if (wave.spawnRate <= 0f)
+            {
+                reason = $"У волны {i + 1} некорректный Spawn Rate.";
+                return false;
+            }
+
+            if (!HasValidEnemyPrefab(wave))
+            {
+                reason =
+                    $"В волне {i + 1} нет префаба с компонентом Enemy.";
+                return false;
+            }
+        }
+
+        return true;
     }
 
-    private IEnumerator SpawnWave()
+    private bool HasValidEnemyPrefab(Wave wave)
     {
-        Wave currentWave = waves[currentWaveIndex];
+        if (wave.enemyPrefabs == null)
+            return false;
+
+        foreach (GameObject prefab in wave.enemyPrefabs)
+        {
+            if (prefab != null &&
+                prefab.GetComponentInChildren<Enemy>(true) != null)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /// <summary>
+    /// Сбрасывает счётчики к началу цикла.
+    /// Не запускает волны автоматически.
+    /// </summary>
+    public void PrepareForNewRun()
+    {
+        if (waveRoutine != null)
+        {
+            StopCoroutine(waveRoutine);
+            waveRoutine = null;
+        }
+
+        isRunning = false;
+        currentWaveIndex = 0;
+        enemiesAlive = 0;
         enemiesSpawned = 0;
 
-        uiManager.UpdateWaveText(currentWaveIndex + 1, waves.Length);
-        uiManager.UpdateProgressBar(0f);
-
-        while (enemiesSpawned < currentWave.count)
+        if (uiManager != null)
         {
-            SpawnEnemy(currentWave);
-            enemiesSpawned++;
-            uiManager.UpdateProgressBar((float)enemiesSpawned / currentWave.count);
+            if (TotalWaves > 0)
+                uiManager.UpdateWaveText(1, TotalWaves);
 
-            yield return new WaitForSeconds(1f / currentWave.spawnRate);
+            uiManager.UpdateProgressBar(0f);
         }
     }
 
-    private void SpawnEnemy(Wave wave)
+    /// <summary>
+    /// Запускает последовательное прохождение всех волн.
+    /// </summary>
+    public bool BeginWaves()
     {
-        // Используем новые переменные для расчета смещения
+        if (isRunning)
+            return false;
+
+        if (!CanStart(out string reason))
+        {
+            Debug.LogError(
+                $"[WaveManager] Невозможно начать бой: {reason}"
+            );
+
+            return false;
+        }
+
+        isRunning = true;
+        waveRoutine = StartCoroutine(RunAllWaves());
+
+        return true;
+    }
+
+    private IEnumerator RunAllWaves()
+    {
+        for (currentWaveIndex = 0;
+             currentWaveIndex < waves.Length;
+             currentWaveIndex++)
+        {
+            Wave currentWave = waves[currentWaveIndex];
+
+            enemiesSpawned = 0;
+            enemiesAlive = 0;
+
+            if (uiManager != null)
+            {
+                uiManager.UpdateWaveText(
+                    currentWaveIndex + 1,
+                    waves.Length
+                );
+
+                uiManager.UpdateProgressBar(0f);
+            }
+
+            // Пустая волна пропускается.
+            if (currentWave.count == 0)
+                continue;
+
+            while (enemiesSpawned < currentWave.count)
+            {
+                if (!SpawnEnemy(currentWave))
+                {
+                    isRunning = false;
+                    waveRoutine = null;
+
+                    WaveRunFailed?.Invoke(
+                        $"Не удалось создать врага в волне " +
+                        $"{currentWaveIndex + 1}."
+                    );
+
+                    yield break;
+                }
+
+                enemiesSpawned++;
+
+                if (uiManager != null)
+                {
+                    float progress =
+                        (float)enemiesSpawned / currentWave.count;
+
+                    uiManager.UpdateProgressBar(progress);
+                }
+
+                // Интервал между появлениями врагов.
+                if (enemiesSpawned < currentWave.count)
+                {
+                    yield return new WaitForSeconds(
+                        1f / currentWave.spawnRate
+                    );
+                }
+            }
+
+            // Все враги волны появились.
+            // Ждём, пока они будут уничтожены или достигнут конца маршрута.
+            while (enemiesAlive > 0)
+            {
+                yield return null;
+            }
+
+            // Только после этого цикл переходит к следующей волне.
+        }
+
+        isRunning = false;
+        waveRoutine = null;
+
+        Debug.Log("[WaveManager] Все волны завершены.");
+
+        AllWavesCompleted?.Invoke();
+    }
+
+    private bool SpawnEnemy(Wave wave)
+    {
+        GameObject prefab = GetRandomValidEnemyPrefab(wave);
+
+        if (prefab == null)
+        {
+            Debug.LogError(
+                "[WaveManager] Не удалось найти подходящий префаб врага."
+            );
+
+            return false;
+        }
+
         Vector3 randomOffset = new Vector3(
-            Random.Range(-spawnWidth / 2, spawnWidth / 2),
-            0,
-            Random.Range(-spawnHeight / 2, spawnHeight / 2)
+            UnityEngine.Random.Range(
+                -Mathf.Max(0f, spawnWidth) / 2f,
+                Mathf.Max(0f, spawnWidth) / 2f
+            ),
+            0f,
+            UnityEngine.Random.Range(
+                -Mathf.Max(0f, spawnHeight) / 2f,
+                Mathf.Max(0f, spawnHeight) / 2f
+            )
         );
 
-        GameObject randomPrefab = wave.enemyPrefabs[Random.Range(0, wave.enemyPrefabs.Length)];
-        GameObject enemyObj = Instantiate(randomPrefab, spawnPoint.position + randomOffset, spawnPoint.rotation);
+        GameObject enemyObject = Instantiate(
+            prefab,
+            spawnPoint.position + randomOffset,
+            spawnPoint.rotation
+        );
 
-        enemyObj.transform.Rotate(0, 180, 0); // Разворот «лицом» вперед
+        enemyObject.transform.Rotate(0f, 180f, 0f);
 
-        Enemy enemyScript = enemyObj.GetComponent<Enemy>();
-        if (enemyScript != null)
+        Enemy enemy = enemyObject.GetComponentInChildren<Enemy>();
+
+        if (enemy == null)
         {
-            enemyScript.waypoints = pathWaypoints;
-            enemyScript.SetOffset(randomOffset);
-            enemyScript.maxHealth *= wave.healthMultiplier;
-            enemyScript.damageToCore = Mathf.RoundToInt(enemyScript.damageToCore * wave.damageMultiplier);
+            Destroy(enemyObject);
+            return false;
         }
 
+        enemy.waypoints = pathWaypoints;
+        enemy.SetOffset(randomOffset);
+
+        enemy.maxHealth *= wave.healthMultiplier;
+        enemy.damageToCore = Mathf.RoundToInt(
+            enemy.damageToCore * wave.damageMultiplier
+        );
+
         enemiesAlive++;
+
+        return true;
     }
 
-    void OnDrawGizmos()
+    private GameObject GetRandomValidEnemyPrefab(Wave wave)
+    {
+        int validCount = 0;
+
+        foreach (GameObject prefab in wave.enemyPrefabs)
+        {
+            if (prefab != null &&
+                prefab.GetComponentInChildren<Enemy>(true) != null)
+            {
+                validCount++;
+            }
+        }
+
+        if (validCount == 0)
+            return null;
+
+        int selectedIndex = UnityEngine.Random.Range(0, validCount);
+
+        foreach (GameObject prefab in wave.enemyPrefabs)
+        {
+            if (prefab == null ||
+                prefab.GetComponentInChildren<Enemy>(true) == null)
+            {
+                continue;
+            }
+
+            if (selectedIndex == 0)
+                return prefab;
+
+            selectedIndex--;
+        }
+
+        return null;
+    }
+
+    /// <summary>
+    /// Вызывается Enemy при уничтожении или достижении конца маршрута.
+    /// </summary>
+    public void EnemyDefeated()
+    {
+        if (!isRunning)
+            return;
+
+        if (enemiesAlive <= 0)
+        {
+            Debug.LogWarning(
+                "[WaveManager] Получен лишний вызов EnemyDefeated."
+            );
+
+            return;
+        }
+
+        enemiesAlive--;
+    }
+
+    private void OnDrawGizmos()
     {
         if (spawnPoint != null)
         {
             Gizmos.color = Color.green;
-            // Рисуем рамку с учетом ширины и высоты
-            Gizmos.DrawWireCube(spawnPoint.position, new Vector3(spawnWidth, 1, spawnHeight));
+
+            Gizmos.DrawWireCube(
+                spawnPoint.position,
+                new Vector3(
+                    spawnWidth,
+                    1f,
+                    spawnHeight
+                )
+            );
         }
-    }
 
-    public void EnemyDefeated()
-    {
-        enemiesAlive--;
-
-        if (enemiesAlive <= 0 && enemiesSpawned == waves[currentWaveIndex].count)
+        if (pathWaypoints != null && pathWaypoints.Length > 1)
         {
-            currentWaveIndex++;
-            if (currentWaveIndex < waves.Length)
+            Gizmos.color = Color.yellow;
+
+            for (int i = 0; i < pathWaypoints.Length - 1; i++)
             {
-                StartCoroutine(SpawnWave());
-            }
-            else
-            {
-                Debug.Log("уровень пройден");
+                if (pathWaypoints[i] != null &&
+                    pathWaypoints[i + 1] != null)
+                {
+                    Gizmos.DrawLine(
+                        pathWaypoints[i].position,
+                        pathWaypoints[i + 1].position
+                    );
+                }
             }
         }
     }

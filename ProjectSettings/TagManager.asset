@@ -12,8 +12,8 @@ TagManager:
   - Environment
   - Water
   - UI
-  - 
-  - 
+  - PlacementGrid
+  - PlacementObstacle
   - 
   - 
   - 
@@ -51,4 +51,3 @@ TagManager:
   - Light Layer 5
   - Light Layer 6
   - Light Layer 7
-  m_MigratedRenderPipelines: []
