@@ -1,12 +1,17 @@
+
 using System.Collections;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float maxHealth = 100f;
-    public float speed = 2f;
-    public int damageToCore = 10;
+    [Header("Основные характеристики")]
+    [Min(1f)] public float maxHealth = 100f;
+    [Min(0f)] public float speed = 2f;
+    [Min(0)] public int damageToCore = 10;
     public Transform[] waypoints;
+
+    [Header("Награда")]
+    [Min(0)] public int scrapReward = 10;
 
     private float currentHealth;
     private int targetWaypointIndex = 0;
@@ -16,6 +21,10 @@ public class Enemy : MonoBehaviour
     private bool isFrozen = false;
     private bool isOnFire = false;
     private bool isPoisoned = false;
+
+    // Защищает от повторной смерти и повторного начисления награды.
+    private bool isResolved = false;
+
     private Material[] materials;
     private Color[] originalEmissions;
 
@@ -24,12 +33,13 @@ public class Enemy : MonoBehaviour
         pathOffset = offset;
     }
 
-    void Start()
+    private void Start()
     {
         currentHealth = maxHealth;
         originalSpeed = speed;
 
         Renderer[] renderers = GetComponentsInChildren<Renderer>();
+
         materials = new Material[renderers.Length];
         originalColors = new Color[renderers.Length];
         originalEmissions = new Color[renderers.Length];
@@ -38,24 +48,40 @@ public class Enemy : MonoBehaviour
         {
             materials[i] = renderers[i].material;
             originalColors[i] = materials[i].color;
+
             if (materials[i].HasProperty("_EmissionColor"))
             {
-                originalEmissions[i] = materials[i].GetColor("_EmissionColor");
+                originalEmissions[i] =
+                    materials[i].GetColor("_EmissionColor");
             }
         }
     }
 
-    void Update()
+    private void Update()
     {
+        if (isResolved)
+            return;
+
         MoveAlongPath();
     }
 
     private void MoveAlongPath()
     {
-        if (waypoints == null || waypoints.Length == 0 || targetWaypointIndex >= waypoints.Length)
+        if (waypoints == null ||
+            waypoints.Length == 0 ||
+            targetWaypointIndex >= waypoints.Length)
+        {
+            return;
+        }
+
+        Transform targetWaypoint = waypoints[targetWaypointIndex];
+
+        if (targetWaypoint == null)
             return;
 
-        Vector3 actualTargetPosition = waypoints[targetWaypointIndex].position + pathOffset;
+        Vector3 actualTargetPosition =
+            targetWaypoint.position + pathOffset;
+
         actualTargetPosition.y = transform.position.y;
 
         Vector3 direction = actualTargetPosition - transform.position;
@@ -64,13 +90,19 @@ public class Enemy : MonoBehaviour
         float separationRadius = 1.5f;
         float separationForce = 2.0f;
 
-        Collider[] nearbyEnemies = Physics.OverlapSphere(transform.position, separationRadius);
+        Collider[] nearbyEnemies =
+            Physics.OverlapSphere(transform.position, separationRadius);
+
         foreach (Collider col in nearbyEnemies)
         {
-            if (col.gameObject != gameObject && col.CompareTag("Enemy"))
+            if (col.gameObject != gameObject &&
+                col.CompareTag("Enemy"))
             {
-                Vector3 pushDirection = transform.position - col.transform.position;
-                pushDirection.y = 0;
+                Vector3 pushDirection =
+                    transform.position - col.transform.position;
+
+                pushDirection.y = 0f;
+
                 float distance = pushDirection.magnitude;
 
                 if (distance > 0.01f)
@@ -80,26 +112,42 @@ public class Enemy : MonoBehaviour
             }
         }
 
-        Vector3 moveDirection = direction.normalized + (separation * separationForce);
+        Vector3 moveDirection =
+            direction.normalized + separation * separationForce;
 
-        transform.Translate(moveDirection.normalized * speed * Time.deltaTime, Space.World);
+        transform.Translate(
+            moveDirection.normalized * speed * Time.deltaTime,
+            Space.World
+        );
 
-        if (Vector3.Distance(transform.position, actualTargetPosition) <= 0.2f)
+        if (Vector3.Distance(
+                transform.position,
+                actualTargetPosition) <= 0.2f)
         {
             targetWaypointIndex++;
+
             if (targetWaypointIndex >= waypoints.Length)
             {
                 ReachCore();
             }
             else
             {
-                Vector3 nextTarget = waypoints[targetWaypointIndex].position + pathOffset;
+                Transform nextWaypoint = waypoints[targetWaypointIndex];
+
+                if (nextWaypoint == null)
+                    return;
+
+                Vector3 nextTarget =
+                    nextWaypoint.position + pathOffset;
+
                 nextTarget.y = transform.position.y;
 
                 Vector3 lookDirection = nextTarget - transform.position;
+
                 if (lookDirection != Vector3.zero)
                 {
-                    transform.rotation = Quaternion.LookRotation(-lookDirection);
+                    transform.rotation =
+                        Quaternion.LookRotation(-lookDirection);
                 }
             }
         }
@@ -107,24 +155,31 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
+        // Не принимаем урон после завершения врага
+        // и не допускаем отрицательный урон.
+        if (isResolved || amount <= 0)
+            return;
+
         currentHealth -= amount;
 
-        StartCoroutine(FlashRed());
-
-        if (currentHealth <= 0)
+        if (currentHealth <= 0f)
         {
             Die();
+            return;
         }
+
+        StartCoroutine(FlashRed());
     }
 
     private IEnumerator FlashRed()
     {
-        // Окрашиваем в ярко-красный при попадании
         SetStatusColor(Color.red, 3f);
 
         yield return new WaitForSeconds(0.1f);
 
-        // Проверяем, какой статус должен вернуться вместо оригинального цвета
+        if (isResolved)
+            yield break;
+
         if (isFrozen)
         {
             SetStatusColor(Color.cyan, 2f);
@@ -145,23 +200,78 @@ public class Enemy : MonoBehaviour
 
     private void ReachCore()
     {
-        Debug.Log("урон ядру - " + damageToCore);
-        FindObjectOfType<WaveManager>().EnemyDefeated();
-        Destroy(gameObject);
+        if (isResolved)
+            return;
+
+        Debug.Log("Урон ядру: " + damageToCore);
+
+        // Враг достиг ядра — награда за убийство не выдаётся.
+        ResolveEnemy(false);
     }
 
     private void Die()
     {
-        FindObjectOfType<WaveManager>().EnemyDefeated();
+        if (isResolved)
+            return;
+
+        // Враг уничтожен — выдаём награду один раз.
+        ResolveEnemy(true);
+    }
+
+    private void ResolveEnemy(bool rewardForKill)
+    {
+        if (isResolved)
+            return;
+
+        // Сначала фиксируем исход, чтобы повторный урон
+        // не привёл к повторной награде.
+        isResolved = true;
+
+        if (rewardForKill && scrapReward > 0)
+        {
+            ScrapResourceManager resourceManager =
+                ScrapResourceManager.Instance;
+
+            if (resourceManager != null)
+            {
+                resourceManager.AddScrap(scrapReward);
+
+                Debug.Log(
+                    $"[Enemy] Враг уничтожен. " +
+                    $"Награда: {scrapReward} лома."
+                );
+            }
+            else
+            {
+                Debug.LogWarning(
+                    "[Enemy] ScrapResourceManager не найден. " +
+                    "Награда за убийство не начислена."
+                );
+            }
+        }
+
+        // Сообщаем менеджеру волн, что этот враг выбыл.
+        WaveManager waveManager = FindObjectOfType<WaveManager>();
+
+        if (waveManager != null)
+        {
+            waveManager.EnemyDefeated();
+        }
+
         Destroy(gameObject);
     }
 
     public void ApplyAbility(AbilityType type)
     {
+        if (isResolved)
+            return;
+
         if (type == AbilityType.Freeze && !isFrozen)
             StartCoroutine(FreezeRoutine());
+
         if (type == AbilityType.Fire && !isOnFire)
             StartCoroutine(FireRoutine());
+
         if (type == AbilityType.Poison && !isPoisoned)
             StartCoroutine(PoisonRoutine());
     }
@@ -169,16 +279,20 @@ public class Enemy : MonoBehaviour
     private IEnumerator FreezeRoutine()
     {
         isFrozen = true;
-        float previousSpeed = speed;
-        speed = originalSpeed * 0.4f; // Замедление на 60%
 
-        // Визуальное окрашивание в синий цвет заморозки
+        float previousSpeed = speed;
+        speed = originalSpeed * 0.4f;
+
         SetStatusColor(Color.cyan, 2f);
 
         yield return new WaitForSeconds(3f);
 
+        if (isResolved)
+            yield break;
+
         speed = previousSpeed;
         isFrozen = false;
+
         ResetStatusColor();
     }
 
@@ -186,11 +300,17 @@ public class Enemy : MonoBehaviour
     {
         isOnFire = true;
 
-        // В течение 3 секунд каждую секунду наносим урон
         for (int i = 0; i < 3; i++)
         {
-            SetStatusColor(Color.red, 3f); // Вспышка пламени
+            if (isResolved)
+                yield break;
+
+            SetStatusColor(Color.red, 3f);
             TakeDamage(10);
+
+            if (isResolved)
+                yield break;
+
             yield return new WaitForSeconds(1f);
         }
 
@@ -202,11 +322,17 @@ public class Enemy : MonoBehaviour
     {
         isPoisoned = true;
 
-        // В течение 5 секунд каждую секунду наносим легкий урон
         for (int i = 0; i < 5; i++)
         {
-            SetStatusColor(Color.green, 1.5f); // Зеленый оттенок яда
+            if (isResolved)
+                yield break;
+
+            SetStatusColor(Color.green, 1.5f);
             TakeDamage(4);
+
+            if (isResolved)
+                yield break;
+
             yield return new WaitForSeconds(1f);
         }
 
@@ -214,37 +340,52 @@ public class Enemy : MonoBehaviour
         ResetStatusColor();
     }
 
-    // Вспомогательный метод для окрашивания под эффекты
-    private void SetStatusColor(Color statusColor, float emissionIntensity)
+    private void SetStatusColor(
+        Color statusColor,
+        float emissionIntensity)
     {
-        if (materials == null) return;
+        if (materials == null)
+            return;
 
         for (int i = 0; i < materials.Length; i++)
         {
-            if (materials[i] == null) continue;
+            if (materials[i] == null)
+                continue;
+
             materials[i].color = statusColor;
+
             if (materials[i].HasProperty("_EmissionColor"))
             {
-                materials[i].SetColor("_EmissionColor", statusColor * emissionIntensity);
+                materials[i].SetColor(
+                    "_EmissionColor",
+                    statusColor * emissionIntensity
+                );
             }
         }
     }
 
-    // Вспомогательный метод для возврата к нормальному виду
     private void ResetStatusColor()
     {
-        if (materials == null || originalColors == null) return;
+        if (materials == null || originalColors == null)
+            return;
 
-        // Если на врага действуют другие эффекты, не сбрасываем цвет раньше времени
-        if (isFrozen || isOnFire || isPoisoned) return;
+        if (isFrozen || isOnFire || isPoisoned)
+            return;
 
         for (int i = 0; i < materials.Length; i++)
         {
-            if (materials[i] == null) continue;
+            if (materials[i] == null)
+                continue;
+
             materials[i].color = originalColors[i];
-            if (materials[i].HasProperty("_EmissionColor") && originalEmissions != null)
+
+            if (materials[i].HasProperty("_EmissionColor") &&
+                originalEmissions != null)
             {
-                materials[i].SetColor("_EmissionColor", originalEmissions[i]);
+                materials[i].SetColor(
+                    "_EmissionColor",
+                    originalEmissions[i]
+                );
             }
         }
     }
