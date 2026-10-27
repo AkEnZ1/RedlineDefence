@@ -1,0 +1,445 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\assets\\scripts\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\assets\\scripts\\resources\\scrapresourcemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\resources\\scrapresourcemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\assets\\scripts\\managers\\gameflowmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\managers\\gameflowmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\assets\\scripts\\turret.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\turret.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|c:\\users\\user\\desktop\\unityprogects\\redlinedefence\\assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\assets\\scripts\\wavemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\wavemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|c:\\users\\user\\desktop\\unityprogects\\redlinedefence\\assets\\scripts\\ui\\turretselectbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\turretselectbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\assets\\scripts\\building\\buildingmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\building\\buildingmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\assets\\scripts\\resources\\scrapcounterview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\resources\\scrapcounterview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\assets\\scripts\\camera\\camerapancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\camera\\camerapancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\assets\\scripts\\building\\placedturretfootprint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\building\\placedturretfootprint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\assets\\scripts\\datascripts\\turretdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\datascripts\\turretdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\assets\\scripts\\building\\buildplatform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\building\\buildplatform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\Managers\\BuildingManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Managers\\BuildingManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\assets\\scripts\\ui\\windows\\buildmenuwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\windows\\buildmenuwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\assets\\scripts\\billboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\billboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\assets\\scripts\\uidebugger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\uidebugger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\assets\\scripts\\ui\\windows\\guidewindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\windows\\guidewindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\assets\\scripts\\ui\\windows\\mainmenuwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\windows\\mainmenuwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\assets\\scripts\\ui\\windows\\uiwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\windows\\uiwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\assets\\scripts\\ui\\windows\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\windows\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\assets\\scripts\\ui\\windows\\settingswindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\windows\\settingswindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\assets\\scripts\\uifollower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\uifollower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\assets\\scripts\\turretui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\turretui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\assets\\scripts\\ui\\windows\\combathudview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F50C1665-FABE-BFE0-4C68-BEC78D2F7A71}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\windows\\combathudview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\GameManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GameManager.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\GameManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GameManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-26T17:58:56.681Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Turret.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\Turret.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Turret.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\Turret.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Turret.cs",
+              "ViewState": "AgIAAMUAAAAAAAAAAAAIwOEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-19T13:29:37.43Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GameFlowManager.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\Managers\\GameFlowManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Managers\\GameFlowManager.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\Managers\\GameFlowManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Managers\\GameFlowManager.cs",
+              "ViewState": "AgIAANMAAAAAAAAAAAAuwPIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-26T10:48:51.733Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ScrapResourceManager.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\Resources\\ScrapResourceManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Resources\\ScrapResourceManager.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\Resources\\ScrapResourceManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Resources\\ScrapResourceManager.cs",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAmwGsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-26T09:40:14.241Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Enemy.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\Enemy.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\Enemy.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Enemy.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIgBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-12T09:27:56.774Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "WaveManager.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\WaveManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\WaveManager.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\WaveManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\WaveManager.cs",
+              "ViewState": "AgIAAIsBAAAAAAAAAAAuwJsBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-07T09:15:03.33Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TurretSelectButton.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\UI\\TurretSelectButton.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\TurretSelectButton.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\UI\\TurretSelectButton.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\TurretSelectButton.cs",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAowF0AAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-19T16:25:34.764Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "BuildingManager.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\Building\\BuildingManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Building\\BuildingManager.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\Building\\BuildingManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Building\\BuildingManager.cs",
+              "ViewState": "AgIAAB4CAAAAAAAAAAAowBoCAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-26T07:35:08.221Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "PlacedTurretFootprint.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\Building\\PlacedTurretFootprint.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Building\\PlacedTurretFootprint.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\Building\\PlacedTurretFootprint.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Building\\PlacedTurretFootprint.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-26T07:43:50.641Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ScrapCounterView.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\Resources\\ScrapCounterView.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Resources\\ScrapCounterView.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\Resources\\ScrapCounterView.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Resources\\ScrapCounterView.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAowDkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-26T09:47:50.173Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CameraPanController.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\Camera\\CameraPanController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Camera\\CameraPanController.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\Camera\\CameraPanController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Camera\\CameraPanController.cs",
+              "ViewState": "AgIAAM0AAAAAAAAAAAAowO4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-26T09:22:01.148Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "BuildPlatform.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\Building\\BuildPlatform.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Building\\BuildPlatform.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\Building\\BuildPlatform.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Building\\BuildPlatform.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAA0wCIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-26T07:35:32.899Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "BuildMenuWindow.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\UI\\Windows\\BuildMenuWindow.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\Windows\\BuildMenuWindow.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\UI\\Windows\\BuildMenuWindow.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\Windows\\BuildMenuWindow.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-19T16:13:34.542Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "BuildingManager.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\Managers\\BuildingManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Managers\\BuildingManager.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\Managers\\BuildingManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Managers\\BuildingManager.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwMQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-19T15:44:57.078Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "TurretData.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\DataScripts\\TurretData.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\DataScripts\\TurretData.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\DataScripts\\TurretData.cs",
+              "RelativeToolTip": "Assets\\Scripts\\DataScripts\\TurretData.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-19T15:12:59.655Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "UIDebugger.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\UIDebugger.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UIDebugger.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\UIDebugger.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UIDebugger.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-19T15:10:06.362Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Billboard.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\Billboard.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Billboard.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\Billboard.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Billboard.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-19T13:30:47.556Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "CombatHUDView.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\UI\\Windows\\CombatHUDView.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\Windows\\CombatHUDView.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\UI\\Windows\\CombatHUDView.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\Windows\\CombatHUDView.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-12T17:40:46.147Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "TurretUI.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\TurretUI.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\TurretUI.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\TurretUI.cs",
+              "RelativeToolTip": "Assets\\Scripts\\TurretUI.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-12T17:36:52.535Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "UIFollower.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\UIFollower.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UIFollower.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\UIFollower.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UIFollower.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-12T17:36:34.783Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "SettingsWindow.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\UI\\Windows\\SettingsWindow.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\Windows\\SettingsWindow.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\UI\\Windows\\SettingsWindow.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\Windows\\SettingsWindow.cs",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAUwGIAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-12T09:49:35.539Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "UIManager.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\UI\\Windows\\UIManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\Windows\\UIManager.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\UI\\Windows\\UIManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\Windows\\UIManager.cs",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAUwGUAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-07T09:02:02.177Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "UIWindow.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\UI\\Windows\\UIWindow.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\Windows\\UIWindow.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\UI\\Windows\\UIWindow.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\Windows\\UIWindow.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAA0wDIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-07T08:59:58.717Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "MainMenuWindow.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\UI\\Windows\\MainMenuWindow.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\Windows\\MainMenuWindow.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\UI\\Windows\\MainMenuWindow.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\Windows\\MainMenuWindow.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-07T08:51:16.611Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "GuideWindow.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\UI\\Windows\\GuideWindow.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\Windows\\GuideWindow.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\UnityProgects\\RedlineDefence\\Assets\\Scripts\\UI\\Windows\\GuideWindow.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\Windows\\GuideWindow.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-12T09:51:04.011Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 171,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
